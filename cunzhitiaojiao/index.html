@@ -1,0 +1,1417 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寸止调教 - 节奏控制玩法解析</title>
+<meta name="description" content="寸止调教是一个围绕节奏控制与自我约束的玩法合集，收录寸止挑战、节拍练习、耐力训练、呼吸调节、分段复盘等具体条目，适合想系统了解节奏控制方法的人查阅。">
+<meta name="keywords" content="节奏控制挑战,节拍练习,耐力训练,分段复盘,呼吸调节">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318182b'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%23f0b429' stroke-width='4'/%3E%3Cpath d='M32 13v19l13 9' fill='none' stroke='%23f0b429' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0f1017;
+  --bg-soft:#151725;
+  --panel:#1b1e2e;
+  --panel-2:#232740;
+  --line:#2e3350;
+  --line-soft:#262a42;
+  --txt:#e8e9f2;
+  --txt-2:#b3b7cc;
+  --txt-3:#7e849f;
+  --gold:#f0b429;
+  --gold-soft:#3a3018;
+  --teal:#4fd1c5;
+  --teal-soft:#16302f;
+  --rose:#e2718f;
+  --rose-soft:#33202a;
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --head-h:60px;
+  --notice-h:38px;
+  --anchor-off:calc(var(--head-h) + var(--notice-h) + 14px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--anchor-off)}
+body{
+  background:
+    radial-gradient(900px 380px at 82% -60px, rgba(240,180,41,.10), transparent 70%),
+    radial-gradient(700px 420px at 8% 0px, rgba(79,209,197,.07), transparent 70%),
+    var(--bg);
+  color:var(--txt);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+ul,ol{list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+/* ============ 公告条 ============ */
+.notice-bar{
+  position:sticky;top:0;z-index:60;
+  height:var(--notice-h);
+  display:flex;align-items:center;gap:10px;
+  padding:0 20px;
+  background:linear-gradient(90deg,#2a2410,#1d2a26 55%,#241d2e);
+  border-bottom:1px solid var(--line);
+  font-size:13px;color:var(--txt-2);
+  overflow:hidden;
+}
+.notice-bar .tag{
+  flex:none;background:var(--gold);color:#1a1405;
+  font-weight:700;font-size:11px;letter-spacing:.08em;
+  padding:2px 8px;border-radius:4px;
+}
+.notice-bar .scroll{overflow:hidden;white-space:nowrap;flex:1;min-width:0}
+.notice-bar .scroll span{display:inline-block;padding-right:40px}
+.notice-bar a{color:var(--teal);border-bottom:1px dotted rgba(79,209,197,.5)}
+.notice-bar a:hover{color:#8ee8df}
+
+/* ============ 页头 ============ */
+.site-head{
+  position:sticky;top:var(--notice-h);z-index:55;
+  height:var(--head-h);
+  background:rgba(15,16,23,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{
+  max-width:1380px;margin:0 auto;height:100%;
+  padding:0 20px;display:flex;align-items:center;gap:22px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand svg{width:30px;height:30px;flex:none}
+.brand-name{font-size:18px;font-weight:800;letter-spacing:.04em;color:var(--txt)}
+.brand-name b{color:var(--gold)}
+.head-nav{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.head-nav::-webkit-scrollbar{display:none}
+.head-nav a{
+  flex:none;font-size:13.5px;color:var(--txt-2);
+  padding:6px 11px;border-radius:6px;white-space:nowrap;
+  transition:.18s;
+}
+.head-nav a:hover{color:var(--gold);background:var(--panel)}
+.head-search{
+  flex:none;display:flex;align-items:center;gap:6px;
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:8px;padding:4px 4px 4px 10px;
+}
+.head-search input{
+  width:130px;background:none;border:none;color:var(--txt);
+  font-size:13px;font-family:inherit;outline:none;
+}
+.head-search input::placeholder{color:var(--txt-3)}
+.head-search button{
+  background:var(--gold);border:none;color:#1a1405;
+  font-size:12px;font-weight:700;padding:4px 10px;border-radius:5px;
+}
+.head-search button:hover{filter:brightness(1.1)}
+.head-toggle{display:none;background:none;border:1px solid var(--line);color:var(--txt-2);border-radius:6px;padding:5px 9px;font-size:13px}
+
+/* ============ 布局容器 ============ */
+.wrap{max-width:1380px;margin:0 auto;padding:0 20px}
+.layout{
+  display:grid;
+  grid-template-columns:176px minmax(0,1fr) 252px;
+  gap:26px;
+  align-items:start;
+  padding-top:26px;
+}
+
+/* ============ 首屏 ============ */
+.hero{
+  grid-column:1 / -1;
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:
+    radial-gradient(600px 260px at 88% 12%, rgba(240,180,41,.14), transparent 65%),
+    radial-gradient(520px 300px at 6% 96%, rgba(79,209,197,.10), transparent 68%),
+    linear-gradient(160deg,#1a1c2b,#14161f 60%);
+  overflow:hidden;
+  padding:38px 40px 34px;
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+  gap:32px;
+  align-items:center;
+}
+.hero-copy{position:relative;z-index:2}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:.16em;color:var(--gold);
+  border:1px solid rgba(240,180,41,.4);border-radius:999px;
+  padding:3px 12px;margin-bottom:16px;
+}
+.hero-kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
+.hero h1{
+  font-size:clamp(30px,4.4vw,46px);
+  line-height:1.15;letter-spacing:.03em;font-weight:900;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,var(--gold),#ffd977 55%,var(--teal));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-desc{
+  margin-top:16px;max-width:560px;
+  color:var(--txt-2);font-size:14.5px;line-height:1.85;
+}
+.hero-desc strong{color:var(--txt);font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13.5px;font-weight:700;
+  padding:9px 18px;border-radius:8px;border:1px solid transparent;
+  transition:.18s;
+}
+.btn-main{background:var(--gold);color:#1a1405}
+.btn-main:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--txt-2);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.hero-stats div{font-size:12px;color:var(--txt-3)}
+.hero-stats b{display:block;font-size:20px;color:var(--gold);font-weight:800;line-height:1.3}
+.hero-art{position:relative;z-index:1;display:flex;justify-content:center}
+.hero-art svg{width:100%;max-width:330px;height:auto}
+
+/* ============ 频道索引（左栏） ============ */
+.channel-col{
+  position:sticky;top:calc(var(--anchor-off) + 4px);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--panel);
+  padding:16px 12px;
+}
+.col-title{
+  font-size:12px;letter-spacing:.14em;color:var(--txt-3);
+  padding:0 8px 10px;border-bottom:1px solid var(--line-soft);
+  margin-bottom:8px;
+}
+.channel-col a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:13.5px;color:var(--txt-2);
+  padding:7px 9px;border-radius:6px;
+  transition:.16s;
+}
+.channel-col a span{font-size:11px;color:var(--txt-3)}
+.channel-col a:hover{background:var(--panel-2);color:var(--gold)}
+.channel-col a:hover span{color:var(--gold)}
+
+/* ============ 主栏 & 侧栏 ============ */
+.main-col{min-width:0;display:flex;flex-direction:column;gap:30px}
+.side-col{min-width:0;display:flex;flex-direction:column;gap:22px;position:sticky;top:calc(var(--anchor-off) + 4px)}
+
+/* 板块通用 */
+.section{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--panel);
+  padding:24px 24px 26px;
+}
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:14px;margin-bottom:18px;flex-wrap:wrap;
+}
+.sec-head h2{
+  font-size:20px;font-weight:800;letter-spacing:.02em;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-head h2::before{
+  content:"";width:5px;height:19px;border-radius:3px;
+  background:linear-gradient(var(--gold),var(--teal));
+}
+.sec-sub{font-size:12.5px;color:var(--txt-3)}
+.sec-link{font-size:12.5px;color:var(--teal);border-bottom:1px dotted rgba(79,209,197,.5)}
+.sec-link:hover{color:#8ee8df}
+
+/* 概览正文 */
+.overview p{color:var(--txt-2);font-size:14.5px;line-height:1.95;margin-bottom:12px}
+.overview p:last-child{margin-bottom:0}
+.overview strong{color:var(--gold);font-weight:600}
+.overview mark{background:var(--teal-soft);color:var(--teal);padding:0 3px;border-radius:3px}
+
+/* 精选卡片网格 */
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  background:var(--bg-soft);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:.2s;
+}
+.card:hover{border-color:rgba(240,180,41,.45);transform:translateY(-2px);box-shadow:var(--shadow)}
+.card-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--panel-2)}
+.card-thumb img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .card-thumb img{transform:scale(1.05)}
+.card-thumb .badge{
+  position:absolute;left:10px;top:10px;
+  background:rgba(15,16,23,.82);border:1px solid var(--line);
+  font-size:11px;color:var(--gold);padding:2px 8px;border-radius:4px;
+  backdrop-filter:blur(4px);
+}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:15px;font-weight:700;line-height:1.45}
+.card-body h3:hover{color:var(--gold)}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{
+  font-size:11px;color:var(--txt-3);
+  border:1px solid var(--line);border-radius:4px;
+  padding:1px 7px;white-space:nowrap;
+}
+.tag.hot{color:var(--rose);border-color:rgba(226,113,143,.4);background:var(--rose-soft)}
+.tag.new{color:var(--teal);border-color:rgba(79,209,197,.4);background:var(--teal-soft)}
+.card-desc{font-size:12.8px;color:var(--txt-2);line-height:1.7;flex:1}
+.card-meta{display:flex;align-items:center;justify-content:space-between;font-size:11.5px;color:var(--txt-3);border-top:1px solid var(--line-soft);padding-top:9px;margin-top:2px}
+.card-meta b{color:var(--gold);font-weight:700}
+
+/* 最新更新 列表 */
+.update-list{display:flex;flex-direction:column}
+.update-item{
+  display:grid;grid-template-columns:64px minmax(0,1fr);
+  gap:14px;align-items:start;
+  padding:13px 2px;border-bottom:1px dashed var(--line-soft);
+}
+.update-item:last-child{border-bottom:none;padding-bottom:0}
+.update-item time{
+  font-size:11.5px;color:var(--txt-3);line-height:1.5;
+  padding-top:2px;font-variant-numeric:tabular-nums;
+}
+.update-item h3{font-size:14px;font-weight:700;line-height:1.5}
+.update-item h3:hover{color:var(--gold)}
+.update-item p{font-size:12.8px;color:var(--txt-2);margin-top:3px;line-height:1.65}
+.update-item .dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);margin-right:6px;vertical-align:middle}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.cat-item{
+  border:1px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--bg-soft);
+  padding:14px 12px;text-align:left;
+  transition:.18s;display:flex;flex-direction:column;gap:4px;
+}
+.cat-item:hover{border-color:var(--gold);background:var(--panel-2)}
+.cat-item strong{font-size:13.5px;font-weight:700;color:var(--txt)}
+.cat-item span{font-size:11.5px;color:var(--txt-3);line-height:1.5}
+.cat-item:hover strong{color:var(--gold)}
+
+/* 深度解析 */
+.deep h3{
+  font-size:16px;font-weight:800;margin:22px 0 10px;
+  padding-left:11px;border-left:3px solid var(--gold);line-height:1.45;
+}
+.deep h3:first-of-type{margin-top:4px}
+.deep p{color:var(--txt-2);font-size:14.5px;line-height:1.95;margin-bottom:10px}
+.deep ul{margin:8px 0 14px;padding-left:2px}
+.deep ul li{
+  position:relative;padding-left:18px;margin-bottom:7px;
+  font-size:14px;color:var(--txt-2);line-height:1.85;
+}
+.deep ul li::before{
+  content:"";position:absolute;left:2px;top:11px;
+  width:6px;height:6px;border-radius:2px;background:var(--teal);transform:rotate(45deg);
+}
+.deep b{color:var(--txt);font-weight:600}
+.deep .quote{
+  border-left:3px solid var(--line);background:var(--bg-soft);
+  padding:12px 16px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-size:13.5px;color:var(--txt-2);line-height:1.85;margin:14px 0;
+}
+.deep .quote i{color:var(--gold);font-style:normal;font-weight:600}
+
+/* 体验指南 步骤 */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{
+  display:grid;grid-template-columns:44px minmax(0,1fr);
+  gap:16px;padding-bottom:20px;position:relative;
+}
+.step:not(:last-child)::before{
+  content:"";position:absolute;left:21px;top:40px;bottom:0;
+  width:1px;background:linear-gradient(var(--line),transparent);
+}
+.step-num{
+  width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;
+  font-size:15px;font-weight:800;color:var(--gold);
+  border:1px solid rgba(240,180,41,.45);background:var(--gold-soft);
+  flex:none;
+}
+.step-body h3{font-size:15px;font-weight:700;margin-bottom:5px}
+.step-body p{font-size:13.5px;color:var(--txt-2);line-height:1.8}
+.step-body .tip{
+  display:inline-block;margin-top:6px;
+  font-size:12px;color:var(--teal);
+  border:1px dashed rgba(79,209,197,.4);border-radius:5px;padding:2px 9px;
+}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:9px}
+.faq details{
+  border:1px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--bg-soft);overflow:hidden;
+}
+.faq details[open]{border-color:rgba(240,180,41,.45)}
+.faq summary{
+  list-style:none;cursor:pointer;
+  padding:12px 40px 12px 15px;position:relative;
+  font-size:14px;font-weight:600;line-height:1.6;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  font-size:18px;color:var(--gold);font-weight:400;transition:.2s;
+}
+.faq details[open] summary::after{content:"−"}
+.faq summary:hover{color:var(--gold)}
+.faq .ans{
+  padding:0 15px 14px;font-size:13.5px;color:var(--txt-2);line-height:1.85;
+  border-top:1px dashed var(--line-soft);margin-top:0;padding-top:11px;
+}
+.faq .ans b{color:var(--txt);font-weight:600}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cmt{
+  border:1px solid var(--line-soft);border-radius:var(--radius-sm);
+  background:var(--bg-soft);padding:12px 14px;
+}
+.cmt-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.avatar{
+  width:26px;height:26px;border-radius:50%;flex:none;
+  display:grid;place-items:center;font-size:11px;font-weight:800;color:#1a1405;
+}
+.cmt-head b{font-size:12.5px;font-weight:700}
+.cmt-head time{font-size:11px;color:var(--txt-3);margin-left:auto}
+.cmt p{font-size:12.8px;color:var(--txt-2);line-height:1.75}
+.cmt p em{color:var(--gold);font-style:normal}
+
+/* 资讯 */
+.news{display:flex;flex-direction:column;gap:14px}
+.news-item{
+  display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;
+  border:1px solid var(--line-soft);border-radius:var(--radius-sm);
+  background:var(--bg-soft);overflow:hidden;transition:.2s;
+}
+.news-item:hover{border-color:rgba(240,180,41,.4)}
+.news-item img{width:120px;height:100%;min-height:86px;object-fit:cover}
+.news-body{padding:11px 14px 12px 0}
+.news-body h3{font-size:14px;font-weight:700;line-height:1.5}
+.news-body h3:hover{color:var(--gold)}
+.news-body p{font-size:12.5px;color:var(--txt-2);margin-top:4px;line-height:1.65}
+.news-meta{font-size:11px;color:var(--txt-3);margin-top:6px;display:flex;gap:10px;flex-wrap:wrap}
+.news-meta span{color:var(--teal)}
+
+/* 相关推荐 标签索引 */
+.reco-tags{display:flex;flex-wrap:wrap;gap:9px}
+.reco-tags a{
+  font-size:13px;color:var(--txt-2);
+  border:1px solid var(--line);border-radius:999px;
+  padding:6px 15px;transition:.18s;background:var(--bg-soft);
+}
+.reco-tags a:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-soft)}
+.reco-tags a small{color:var(--txt-3);font-size:11px;margin-left:5px}
+
+/* 榜单 */
+.rank{display:flex;flex-direction:column;gap:2px}
+.rank-item{
+  display:grid;grid-template-columns:26px minmax(0,1fr) auto;
+  gap:10px;align-items:center;
+  padding:10px 8px;border-radius:6px;transition:.16s;
+}
+.rank-item:hover{background:var(--panel-2)}
+.rank-no{
+  font-size:13px;font-weight:800;color:var(--txt-3);
+  font-variant-numeric:tabular-nums;text-align:center;
+}
+.rank-item:nth-child(1) .rank-no{color:var(--gold)}
+.rank-item:nth-child(2) .rank-no{color:#cfd6e6}
+.rank-item:nth-child(3) .rank-no{color:#c98a5b}
+.rank-item .r-name{font-size:13.5px;font-weight:600;line-height:1.4}
+.rank-item .r-sub{font-size:11.5px;color:var(--txt-3);margin-top:1px}
+.rank-bar{display:flex;align-items:center;gap:7px}
+.rank-bar i{
+  display:block;height:4px;border-radius:2px;
+  background:linear-gradient(90deg,var(--teal),var(--gold));width:var(--w,50%);
+}
+.rank-bar em{font-size:11px;color:var(--txt-3);font-style:normal;font-variant-numeric:tabular-nums}
+
+/* 侧栏模块 */
+.side-box{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--panel);padding:16px 16px 18px;
+}
+.side-box h3{
+  font-size:14px;font-weight:800;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.side-box h3::before{content:"";width:4px;height:14px;border-radius:2px;background:var(--gold)}
+.side-rank .rank-item{padding:8px 4px}
+.side-rank .r-name{font-size:12.8px}
+.side-timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{
+  display:grid;grid-template-columns:10px minmax(0,1fr);gap:11px;
+  padding-bottom:14px;position:relative;
+}
+.tl-item:not(:last-child)::before{
+  content:"";position:absolute;left:4px;top:14px;bottom:0;width:1px;background:var(--line);
+}
+.tl-dot{
+  width:9px;height:9px;border-radius:50%;margin-top:5px;
+  border:2px solid var(--gold);background:var(--bg);flex:none;
+}
+.tl-item:first-child .tl-dot{background:var(--gold);box-shadow:0 0 8px rgba(240,180,41,.6)}
+.tl-body b{display:block;font-size:12.5px;font-weight:700;line-height:1.5}
+.tl-body span{font-size:11.5px;color:var(--txt-3)}
+.side-note{
+  font-size:12px;color:var(--txt-3);line-height:1.8;
+  border-left:2px solid var(--line);padding-left:10px;
+}
+.side-note b{color:var(--txt-2)}
+
+/* 搜索结果反馈条 */
+.search-feedback{
+  display:none;
+  border:1px solid rgba(240,180,41,.4);border-radius:var(--radius-sm);
+  background:var(--gold-soft);
+  padding:10px 14px;font-size:13px;color:var(--gold);
+  margin-bottom:14px;
+}
+.search-feedback.show{display:block}
+.search-feedback button{
+  background:none;border:none;color:var(--txt-2);font-size:12px;
+  text-decoration:underline;margin-left:8px;
+}
+mark.hit{background:rgba(240,180,41,.3);color:var(--gold);border-radius:2px;padding:0 2px}
+.no-hit{
+  border:1px dashed var(--line);border-radius:var(--radius-sm);
+  padding:24px;text-align:center;color:var(--txt-3);font-size:13.5px;
+  display:none;
+}
+.no-hit.show{display:block}
+
+/* ============ 页尾 ============ */
+.site-foot{
+  margin-top:44px;
+  border-top:1px solid var(--line);
+  background:linear-gradient(180deg,transparent,rgba(240,180,41,.03));
+}
+.foot-inner{
+  max-width:1380px;margin:0 auto;padding:36px 20px 22px;
+  display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px;
+}
+.foot-brand .brand{margin-bottom:12px}
+.foot-brand p{font-size:12.8px;color:var(--txt-3);line-height:1.85;max-width:320px}
+.foot-col h4{font-size:13px;font-weight:700;color:var(--txt-2);margin-bottom:10px;letter-spacing:.04em}
+.foot-col a{display:block;font-size:12.5px;color:var(--txt-3);padding:3px 0;transition:.16s}
+.foot-col a:hover{color:var(--gold)}
+.foot-bottom{
+  border-top:1px solid var(--line-soft);
+  padding:14px 20px;max-width:1380px;margin:0 auto;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:11.5px;color:var(--txt-3);
+}
+.foot-bottom .disc{color:var(--txt-3)}
+
+/* ============ 响应式 ============ */
+@media (max-width:1180px){
+  .layout{grid-template-columns:152px minmax(0,1fr) 230px;gap:20px}
+  .card-grid{grid-template-columns:1fr}
+}
+@media (max-width:1024px){
+  .layout{grid-template-columns:minmax(0,1fr) 268px;gap:22px}
+  .channel-col{
+    grid-column:1 / -1;position:static;
+    display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+    padding:12px 14px;
+  }
+  .channel-col .col-title{
+    width:100%;padding:0 0 8px;margin:0;border-bottom:none;
+  }
+  .channel-col a{
+    border:1px solid var(--line);border-radius:999px;
+    padding:5px 13px;font-size:12.5px;gap:6px;
+  }
+  .channel-col a span{display:none}
+  .side-col{position:static}
+  .hero{grid-template-columns:1fr;padding:30px 26px}
+  .hero-art{order:-1;max-width:220px;margin:0 auto}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:740px){
+  :root{--head-h:54px;--notice-h:36px}
+  body{font-size:14.5px}
+  .layout{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:18px}
+  .side-col{order:3}
+  .main-col{order:2}
+  .channel-col{order:1}
+  .head-inner{gap:10px;padding:0 14px}
+  .brand-name{font-size:16px}
+  .head-nav{display:none}
+  .head-nav.open{
+    display:flex;position:absolute;left:0;right:0;top:var(--head-h);
+    background:var(--bg-soft);border-bottom:1px solid var(--line);
+    padding:10px 14px;flex-wrap:wrap;gap:6px;z-index:50;
+  }
+  .head-toggle{display:block}
+  .head-search{margin-left:auto}
+  .head-search input{width:88px}
+  .hero{padding:24px 18px 22px;gap:20px}
+  .hero h1{font-size:28px}
+  .hero-desc{font-size:13.5px}
+  .hero-stats{gap:18px}
+  .card-grid{grid-template-columns:1fr}
+  .comments{grid-template-columns:1fr}
+  .news-item{grid-template-columns:96px minmax(0,1fr)}
+  .news-item img{width:96px}
+  .section{padding:18px 16px 20px}
+  .sec-head h2{font-size:17.5px}
+  .foot-inner{grid-template-columns:1fr 1fr;gap:22px;padding:28px 16px 18px}
+  .foot-brand{grid-column:1 / -1}
+  .update-item{grid-template-columns:minmax(0,1fr);gap:3px}
+  .update-item time{font-size:11px}
+  .wrap{padding:0 14px}
+  .deep h3{font-size:15px}
+  .overview p,.deep p{font-size:14px}
+}
+@media (max-width:400px){
+  .cat-grid{grid-template-columns:1fr}
+  .hero h1{font-size:25px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="notice-bar" role="region" aria-label="站点更新公告">
+  <span class="tag">更新</span>
+  <div class="scroll">
+    <span>11 月 8 日新增「四拍循环耐力挑战」「分段呼吸复位练习」两条目；本周共上线 9 个新挑战单元 · <a href="/#latest">查看全部更新</a></span>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-head">
+  <div class="head-inner">
+    <a class="brand" href="/#top" aria-label="寸止调教首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1b1e2e"/>
+        <circle cx="32" cy="32" r="19" fill="none" stroke="#f0b429" stroke-width="3.5"/>
+        <path d="M32 13v19l13 9" fill="none" stroke="#f0b429" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="3" fill="#4fd1c5"/>
+      </svg>
+      <span class="brand-name">寸止调教</span>
+    </a>
+    <nav class="head-nav" id="headNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选条目</a>
+      <a href="/#latest">最新更新</a>
+      <a href="/#category">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#rank">热门榜单</a>
+    </nav>
+    <div class="head-search" role="search">
+      <input type="search" id="siteSearch" placeholder="搜条目 / 类型" aria-label="站内搜索">
+      <button type="button" id="searchBtn">查找</button>
+    </div>
+    <button class="head-toggle" id="navToggle" aria-expanded="false" aria-controls="headNav">菜单</button>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+  <div class="layout">
+
+    <!-- 首屏 -->
+    <section class="hero" aria-label="主题首屏">
+      <div class="hero-copy">
+        <span class="hero-kicker">节拍 · 耐力 · 复盘</span>
+        <h1><em>寸止调教</em></h1>
+        <p class="hero-desc">
+          围绕<strong>节奏控制</strong>与<strong>自我约束</strong>建立的玩法合集：把动作、呼吸与停顿拆成可执行的节拍单元，用分层挑战、分段计时和复盘记录检验稳定性。这里汇总寸止挑战、四拍循环、耐力阶梯、呼吸复位与分段复盘等具体条目，适合想按步骤练习节拍控制、或想比较不同训练强度的读者。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-main" href="/#featured">进入精选条目</a>
+          <a class="btn btn-ghost" href="/#guide">查看练习路径</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>9</b>本周新增单元</div>
+          <div><b>126</b>已收录挑战条目</div>
+          <div><b>6</b>节拍难度层级</div>
+          <div><b>11-08</b>最近更新日期</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 320 300" role="img">
+          <defs>
+            <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0b429"/>
+              <stop offset="1" stop-color="#4fd1c5"/>
+            </linearGradient>
+            <linearGradient id="barG" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#4fd1c5" stop-opacity=".25"/>
+              <stop offset="1" stop-color="#f0b429" stop-opacity=".85"/>
+            </linearGradient>
+          </defs>
+          <circle cx="160" cy="150" r="112" fill="none" stroke="#2e3350" stroke-width="1.5" stroke-dasharray="3 7"/>
+          <circle cx="160" cy="150" r="88" fill="none" stroke="#262a42" stroke-width="10"/>
+          <circle cx="160" cy="150" r="88" fill="none" stroke="url(#ringG)" stroke-width="10"
+                  stroke-linecap="round" stroke-dasharray="420 553" transform="rotate(-90 160 150)"/>
+          <circle cx="160" cy="150" r="60" fill="none" stroke="#2e3350" stroke-width="1"/>
+          <path d="M160 150 L160 62" stroke="#f0b429" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="160" cy="150" r="5" fill="#f0b429"/>
+          <g stroke="#4fd1c5" stroke-width="2" opacity=".7">
+            <line x1="176" y1="150" x2="196" y2="150"/>
+            <line x1="170" y1="164" x2="187" y2="177"/>
+            <line x1="156" y1="170" x2="163" y2="190"/>
+          </g>
+          <g fill="url(#barG)">
+            <rect x="42" y="236" width="16" height="26" rx="3"/>
+            <rect x="66" y="224" width="16" height="38" rx="3"/>
+            <rect x="90" y="244" width="16" height="18" rx="3"/>
+            <rect x="114" y="212" width="16" height="50" rx="3"/>
+            <rect x="138" y="230" width="16" height="32" rx="3"/>
+            <rect x="162" y="204" width="16" height="58" rx="3"/>
+            <rect x="186" y="238" width="16" height="24" rx="3"/>
+            <rect x="210" y="218" width="16" height="44" rx="3"/>
+            <rect x="234" y="246" width="16" height="16" rx="3"/>
+            <rect x="258" y="226" width="16" height="36" rx="3"/>
+          </g>
+          <text x="160" y="150" text-anchor="middle" dy="16" fill="#e8e9f2" font-size="15" font-weight="700" font-family="sans-serif">4/4</text>
+          <text x="160" y="28" text-anchor="middle" fill="#7e849f" font-size="10" letter-spacing="2" font-family="sans-serif">TEMPO CONTROL</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 左频道索引 -->
+    <aside class="channel-col" aria-label="频道索引">
+      <div class="col-title">频道索引</div>
+      <a href="/#featured">寸止挑战 <span>42</span></a>
+      <a href="/#category">四拍循环 <span>18</span></a>
+      <a href="/#category">耐力阶梯 <span>23</span></a>
+      <a href="/#category">呼吸复位 <span>15</span></a>
+      <a href="/#category">分段复盘 <span>12</span></a>
+      <a href="/#category">节拍器练习 <span>9</span></a>
+      <a href="/#latest">更新日志 <span>9</span></a>
+      <a href="/#rank">难度榜单 <span>6</span></a>
+      <a href="/#reco">延伸方向 <span>8</span></a>
+      <a href="/#faq">常见问答 <span>6</span></a>
+    </aside>
+
+    <!-- 主内容区 -->
+    <div class="main-col">
+
+      <div class="search-feedback" id="searchFeedback" role="status" aria-live="polite">
+        <span id="searchText"></span>
+        <button type="button" id="clearSearch">清除筛选</button>
+      </div>
+
+      <!-- 1. 主题领域概览 -->
+      <section class="section overview" id="overview">
+        <div class="sec-head">
+          <h2>节奏控制玩法的领域概览</h2>
+          <span class="sec-sub">先了解内容构成，再决定练什么</span>
+        </div>
+        <p>
+          <strong>寸止调教</strong>指向的是一类以“节拍—停顿—复位”为核心的练习体系。它把一次完整动作拆成若干拍：起拍发力、中段维持、指定拍位停下、再按呼吸节奏复位。练习者通过控制停顿时长、循环次数与复位速度，逐层提升对节拍的掌握度。与单纯追求时长的耐力训练相比，这套体系更强调“停得住、接得稳、复得快”三件事。
+        </p>
+        <p>
+          目前可查阅的内容大致分为六个方向：<mark>寸止挑战</mark>以单轮停顿为主，适合入门；<mark>四拍循环</mark>引入固定拍号，考验连续稳定；<mark>耐力阶梯</mark>按轮次递增，强调总量控制；<mark>呼吸复位</mark>处理停顿后的节奏回正；<mark>分段复盘</mark>用记录表定位失误拍位；<mark>节拍器练习</mark>则用外部节拍约束动作。六个方向彼此衔接，构成从单拍到多轮、从感知到记录的完整路径。
+        </p>
+        <p>
+          不同条目的差异主要落在三个维度：拍速（每分钟多少拍）、停顿占比（停顿时长与动作时长的比例）、轮次结构（等长递增或金字塔式递减）。拍速越高、停顿占比越大，对节奏记忆的要求越强；轮次结构越复杂，越需要在分段复盘里留记录。初次接触时通常从 60 拍/分钟、停顿占比三成的单轮挑战开始，稳定后再进入四拍循环。
+        </p>
+        <p>
+          值得关注的是，近期上线的条目开始加入“复位质量评分”，把停顿后第一拍的回正速度单独量化。这一改动让耐力阶梯不再只看完成轮次，也看每一轮结束时的节奏偏移量，对练习者的自我观察提出了更细的要求。
+        </p>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="section" id="featured">
+        <div class="sec-head">
+          <h2>精选挑战条目</h2>
+          <span class="sec-sub">按拍速与结构挑选的 8 个代表条目</span>
+        </div>
+        <div class="card-grid" id="featuredGrid">
+
+          <article class="card" data-search="六十拍单轮寸止挑战 入门 单拍 停顿三成">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/cunzhi-60bpm01/400/300" width="400" height="300" loading="lazy" alt="六十拍单轮寸止挑战节拍示意图">
+              <span class="badge">入门首选</span>
+            </div>
+            <div class="card-body">
+              <h3>六十拍单轮寸止挑战</h3>
+              <div class="card-tags">
+                <span class="tag new">单轮</span><span class="tag">60 BPM</span><span class="tag">停顿三成</span>
+              </div>
+              <p class="card-desc">一分钟六十拍，每四拍停一次，全程单轮不循环。重点在听清拍点后准确落停，适合第一次接触节奏控制的人建立拍感。</p>
+              <div class="card-meta"><span>难度 <b>L1</b> · 时长 1 分钟</span><span>完成率 <b>86%</b></span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="四拍循环耐力挑战 循环 四拍 连续">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/cunzhi-4beat02/400/300" width="400" height="300" loading="lazy" alt="四拍循环耐力挑战循环结构图">
+              <span class="badge">本周新增</span>
+            </div>
+            <div class="card-body">
+              <h3>四拍循环耐力挑战</h3>
+              <div class="card-tags">
+                <span class="tag new">循环</span><span class="tag">4/4 拍</span><span class="tag">八轮</span>
+              </div>
+              <p class="card-desc">以四拍为一组连续循环八轮，每轮第三拍停顿半拍。考验的是循环中的稳定性，一旦某轮抢拍，后续拍位会连锁偏移。</p>
+              <div class="card-meta"><span>难度 <b>L3</b> · 时长 4 分钟</span><span>完成率 <b>58%</b></span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="金字塔耐力阶梯 递增 递减 轮次">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/cunzhi-pyramid03/400/300" width="400" height="300" loading="lazy" alt="金字塔耐力阶梯轮次递增示意图">
+              <span class="badge">进阶</span>
+            </div>
+            <div class="card-body">
+              <h3>金字塔耐力阶梯</h3>
+              <div class="card-tags">
+                <span class="tag">递增递减</span><span class="tag">五轮</span><span class="tag hot">高消耗</span>
+              </div>
+              <p class="card-desc">停顿时长按 1-2-3-2-1 拍递增再递减，轮间不休息。难点在中段第三轮，此时停顿最长、注意力最容易松。</p>
+              <div class="card-meta"><span>难度 <b>L4</b> · 时长 6 分钟</span><span>完成率 <b>41%</b></span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="分段呼吸复位练习 呼吸 复位 回正">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/cunzhi-breath04/400/300" width="400" height="300" loading="lazy" alt="分段呼吸复位练习的呼吸节拍示意">
+              <span class="badge">复位专项</span>
+            </div>
+            <div class="card-body">
+              <h3>分段呼吸复位练习</h3>
+              <div class="card-tags">
+                <span class="tag new">复位</span><span class="tag">4-4-6 呼吸</span><span class="tag">低强度</span>
+              </div>
+              <p class="card-desc">停顿后按吸气四拍、屏息四拍、呼气六拍复位，用小节拍器校准。专门解决“停得下但接不上”的常见问题。</p>
+              <div class="card-meta"><span>难度 <b>L2</b> · 时长 3 分钟</span><span>完成率 <b>79%</b></span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="变速寸止挑战 变速 拍速 切换">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/cunzhi-var05/400/300" width="400" height="300" loading="lazy" alt="变速寸止挑战的拍速切换节点">
+              <span class="badge">变速</span>
+            </div>
+            <div class="card-body">
+              <h3>变速寸止挑战</h3>
+              <div class="card-tags">
+                <span class="tag hot">变速</span><span class="tag">60→90 BPM</span><span class="tag">三段落</span>
+              </div>
+              <p class="card-desc">分三段把拍速从 60 提到 90，每段结束处停两拍。真正的考验不是高速段，而是提速瞬间的第一拍是否踩准。</p>
+              <div class="card-meta"><span>难度 <b>L3</b> · 时长 4 分钟</span><span>完成率 <b>52%</b></span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="盲拍寸止练习 盲拍 无节拍器 内心拍感">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/cunzhi-blind06/400/300" width="400" height="300" loading="lazy" alt="盲拍寸止练习的无节拍器训练场景">
+              <span class="badge">无提示</span>
+            </div>
+            <div class="card-body">
+              <h3>盲拍寸止练习</h3>
+              <div class="card-tags">
+                <span class="tag">盲拍</span><span class="tag">无节拍器</span><span class="tag">拍感检验</span>
+              </div>
+              <p class="card-desc">关掉节拍器，凭内心拍感完成四拍停顿，结束后对照回放核对偏差。偏差常集中在第二拍，说明起拍用力过猛。</p>
+              <div class="card-meta"><span>难度 <b>L2</b> · 时长 2 分钟</span><span>完成率 <b>67%</b></span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="分段复盘记录表 复盘 记录 偏移量">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/cunzhi-review07/400/300" width="400" height="300" loading="lazy" alt="分段复盘记录表拍位偏移统计">
+              <span class="badge">工具</span>
+            </div>
+            <div class="card-body">
+              <h3>分段复盘记录表</h3>
+              <div class="card-tags">
+                <span class="tag new">复盘</span><span class="tag">偏移统计</span><span class="tag">六栏表</span>
+              </div>
+              <p class="card-desc">按轮次记录每拍实际落点与目标拍位之差，六栏分别统计抢拍、拖拍、复位耗时。连续记录三天即可看出固定失误拍位。</p>
+              <div class="card-meta"><span>难度 <b>L1</b> · 记录型</span><span>使用人数 <b>1.2k</b></span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="长时低拍耐力挑战 长时 低拍 二十分钟">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/cunzhi-long08/400/300" width="400" height="300" loading="lazy" alt="长时低拍耐力挑战的时长分布">
+              <span class="badge hot">高难度</span>
+            </div>
+            <div class="card-body">
+              <h3>长时低拍耐力挑战</h3>
+              <div class="card-tags">
+                <span class="tag hot">长时</span><span class="tag">40 BPM</span><span class="tag">20 分钟</span>
+              </div>
+              <p class="card-desc">拍速降到每分钟四十拍，连续二十分钟每八拍停一次。慢拍反而更难维持注意，多数人在第 12 分钟出现明显拖拍。</p>
+              <div class="card-meta"><span>难度 <b>L5</b> · 时长 20 分钟</span><span>完成率 <b>23%</b></span></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 -->
+      <section class="section" id="latest">
+        <div class="sec-head">
+          <h2>最新更新与动态</h2>
+          <span class="sec-sub">截至 2026-11-08 的条目变动</span>
+        </div>
+        <ul class="update-list">
+          <li class="update-item">
+            <time>今天 09:40</time>
+            <div><h3>四拍循环耐力挑战 · 新增第 9 轮变体</h3><p><span class="dot"></span>在原有八轮基础上增加一轮“反向停顿”，第三拍改到第二拍落停。</p></div>
+          </li>
+          <li class="update-item">
+            <time>今天 08:15</time>
+            <div><h3>分段呼吸复位练习 · 上线 4-4-6 节拍音频</h3><p><span class="dot"></span>附带可循环播放的呼吸引导音轨，校准吸气、屏息与呼气的拍数。</p></div>
+          </li>
+          <li class="update-item">
+            <time>昨天 21:10</time>
+            <div><h3>金字塔耐力阶梯 · 调整轮间休息规则</h3><p><span class="dot"></span>第三轮之后的轮间休息由“自由休息”改为“固定停四拍”，降低节奏断裂。</p></div>
+          </li>
+          <li class="update-item">
+            <time>昨天 18:32</time>
+            <div><h3>长时低拍耐力挑战 · 补充第 12 分钟提示</h3><p><span class="dot"></span>在音频第 12 分钟加入一次轻提示音，用于标记常见拖拍位置。</p></div>
+          </li>
+          <li class="update-item">
+            <time>11 月 6 日</time>
+            <div><h3>盲拍寸止练习 · 新增回放对照功能</h3><p><span class="dot"></span>练习结束后可逐拍回看偏差，第二拍偏差以高亮标出。</p></div>
+          </li>
+          <li class="update-item">
+            <time>11 月 5 日</time>
+            <div><h3>变速寸止挑战 · 增加 75 BPM 中间段落</h3><p><span class="dot"></span>原两段式改为三段式，60→75→90，提速梯度更平缓。</p></div>
+          </li>
+          <li class="update-item">
+            <time>11 月 3 日</time>
+            <div><h3>分段复盘记录表 · 六栏表新增“复位耗时”列</h3><p><span class="dot"></span>把停顿后第一拍的回归时间单独记录，便于比较不同拍速下的复位效率。</p></div>
+          </li>
+          <li class="update-item">
+            <time>11 月 1 日</time>
+            <div><h3>六十拍单轮寸止挑战 · 完成率统计更新</h3><p><span class="dot"></span>近三十天完成率由 81% 升至 86%，停顿三成组的平均偏差缩小到 0.18 拍。</p></div>
+          </li>
+          <li class="update-item">
+            <time>10 月 28 日</time>
+            <div><h3>节拍器练习 · 新增 40/60/90 三档预设</h3><p><span class="dot"></span>三档对应入门、常规、提速三种练习场景，可一键切换。</p></div>
+          </li>
+          <li class="update-item">
+            <time>10 月 24 日</time>
+            <div><h3>难度榜单 · 本月首次更新</h3><p><span class="dot"></span>长时低拍耐力挑战以 23% 完成率继续居首，金字塔耐力阶梯升至第二。</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="section" id="category">
+        <div class="sec-head">
+          <h2>按类型进入</h2>
+          <span class="sec-sub">八个方向，对应不同练习目标</span>
+        </div>
+        <div class="cat-grid">
+          <button class="cat-item" type="button" data-filter="单轮"><strong>单轮寸止</strong><span>一拍一停，建立基础拍感</span></button>
+          <button class="cat-item" type="button" data-filter="循环"><strong>四拍循环</strong><span>固定拍号连续循环</span></button>
+          <button class="cat-item" type="button" data-filter="变速"><strong>变速挑战</strong><span>拍速切换中的落点控制</span></button>
+          <button class="cat-item" type="button" data-filter="耐力"><strong>耐力阶梯</strong><span>轮次递增与总量管理</span></button>
+          <button class="cat-item" type="button" data-filter="复位"><strong>呼吸复位</strong><span>停顿后的节奏回正</span></button>
+          <button class="cat-item" type="button" data-filter="复盘"><strong>分段复盘</strong><span>记录偏移，定位失误拍位</span></button>
+          <button class="cat-item" type="button" data-filter="盲拍"><strong>盲拍练习</strong><span>脱离节拍器的拍感检验</span></button>
+          <button class="cat-item" type="button" data-filter="长时"><strong>长时低拍</strong><span>慢拍下的注意力维持</span></button>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析 -->
+      <section class="section deep" id="deep">
+        <div class="sec-head">
+          <h2>深度解析：拍速、停顿与轮次怎么配</h2>
+          <span class="sec-sub">三个参数决定一条挑战的实际难度</span>
+        </div>
+
+        <h3>拍速不是越快越难</h3>
+        <p>
+          多数人默认拍速越高越吃力，但在寸止类练习里，拍速与难度并不是单调关系。60 到 75 拍之间是多数人的舒适区，动作与停顿都能被清晰感知；一旦超过 90 拍，停顿窗口变窄，考验的是反应而非节奏记忆；而降到 40 拍以下，单拍间隔被拉长，注意力反而更容易在等待中滑走。
+        </p>
+        <p>
+          这也解释了为什么<b>长时低拍耐力挑战</b>以 40 拍、20 分钟的配置排在本月难度榜首——它的完成率只有 23%，低于 90 拍的变速段。慢拍难度来自维持，而不是来自速度。
+        </p>
+
+        <h3>停顿占比决定“停得住”的门槛</h3>
+        <p>
+          停顿占比指停顿时长占整个动作周期的比例。三成停顿意味着每四拍大约停一拍多一点，属于可维持范围；五成以上的停顿会让动作被切成碎片，复位难度陡增。多数四拍循环条目把停顿控制在三成到四成之间。
+        </p>
+        <ul>
+          <li><b>三成停顿</b>：适合单轮与循环类，节奏连贯，复位压力小。</li>
+          <li><b>四成停顿</b>：常见于金字塔阶梯的中段，需要提前预判落点。</li>
+          <li><b>五成以上停顿</b>：仅出现在高难度变体，通常配合呼吸复位一起练。</li>
+        </ul>
+
+        <h3>轮次结构的三种典型形态</h3>
+        <p>
+          轮次结构决定练习的疲劳曲线。<b>等长结构</b>每轮时长相同，适合检验稳定性；<b>递增结构</b>难度逐轮抬升，容易在中后段崩拍；<b>金字塔结构</b>先增后减，第三轮是分水岭。选择哪种结构，取决于你当前想解决的是稳定问题还是总量问题。
+        </p>
+        <div class="quote">
+          <i>判断经验：</i>如果连续三次练习都在同一轮出现抢拍，说明该轮的停顿设置超出了当前拍感，应回到上一档结构巩固，而不是硬撑到最后一轮。
+        </div>
+
+        <h3>复位质量为什么被单独量化</h3>
+        <p>
+          停顿结束后的第一拍，是整段练习最容易失守的位置。过去只看“有没有停住”，现在条目普遍加入复位耗时记录：从停顿结束到第一拍准确落点所需的时间。复位耗时超过半拍，通常意味着停顿期间呼吸紊乱，需要先做呼吸复位再继续。
+        </p>
+        <p>
+          <b>分段呼吸复位练习</b>的 4-4-6 结构正是为此设计：吸气四拍稳定情绪，屏息四拍维持节拍记忆，呼气六拍把身体拉回节拍。三者相加十四拍，刚好覆盖一次较长停顿后的回正窗口。
+        </p>
+
+        <h3>如何比较两条相近的挑战</h3>
+        <p>
+          拍速接近、轮次相同的两条挑战，差异往往藏在细节里。比较时先看停顿落在第几拍：落在弱拍的条目比落在强拍的更难，因为强拍有天然的心理锚点。再看是否有变速段：带变速的条目会在切换点制造额外偏差。最后看复位要求：要求记录复位耗时的条目，实际难度通常高出一档。
+        </p>
+        <ul>
+          <li>同为 60 拍，三成停顿的<b>六十拍单轮寸止挑战</b>明显轻于四成停顿的循环变体。</li>
+          <li>同为八轮，<b>四拍循环耐力挑战</b>的第三拍停顿比第二拍停顿更考验预判。</li>
+          <li>带复位评分的条目，即使拍速更低，也应视为更高一级。</li>
+        </ul>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section class="section" id="guide">
+        <div class="sec-head">
+          <h2>练习路径：从哪一条开始</h2>
+          <span class="sec-sub">按顺序推进，避免一上来就练高难度</span>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h3>先用单轮建立拍感</h3>
+              <p>从六十拍单轮寸止挑战开始，只做一轮，重点听清每四拍一次的落停位置。第一遍不追求准确，先把“停在哪一拍”记住。</p>
+              <span class="tip">判断标准：能连续三次准确落在目标拍位</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h3>加入呼吸复位</h3>
+              <p>单轮稳定后，插入分段呼吸复位练习。它强度低，但能解决停顿后接不上的问题。建议与单轮交替练，一天单轮、一天复位。</p>
+              <span class="tip">判断标准：复位耗时稳定在半拍以内</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h3>进入四拍循环</h3>
+              <p>拍感与复位都稳定后，尝试四拍循环耐力挑战。前两轮刻意放慢，把注意力放在第三拍停顿，而不是追求轮数。</p>
+              <span class="tip">判断标准：八轮中至少六轮偏移不超过半拍</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h3>用复盘表定位问题</h3>
+              <p>进入金字塔或变速类之前，先用分段复盘记录表记录三天。表里会显示固定失误拍位，通常集中在一到两个位置，针对性加练即可。</p>
+              <span class="tip">判断标准：连续三天失误拍位一致</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+              <h3>再挑战变速与长时</h3>
+              <p>变速寸止挑战考验切换瞬间，长时低拍考验注意力维持，两者方向不同，建议分开练，不要在同一天连续进行。</p>
+              <span class="tip">判断标准：变速段落首拍偏差小于一拍</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="section" id="faq">
+        <div class="sec-head">
+          <h2>常见问答</h2>
+          <span class="sec-sub">关于拍速、停顿与复位的具体问题</span>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>第一次接触寸止调教，从哪个条目开始比较好？</summary>
+            <div class="ans">建议从<b>六十拍单轮寸止挑战</b>开始。它的拍速适中、只有一轮、停顿占比三成，能把注意力集中在“听拍—落停”这一件事上。等连续三次都能准确落停，再考虑四拍循环。</div>
+          </details>
+          <details>
+            <summary>四拍循环和八拍循环有什么区别？</summary>
+            <div class="ans">四拍循环的周期短，停顿出现得更频繁，考验的是反复落停的稳定性；八拍循环周期长，单次等待更久，考验注意力维持。同样的总时长下，四拍循环的复位次数大约是八拍的两倍，对复位能力要求更高。</div>
+          </details>
+          <details>
+            <summary>拍速越高是不是难度越大？</summary>
+            <div class="ans">不是。60 到 75 拍是多数人的舒适区；超过 90 拍，停顿窗口变窄，难度转向反应速度；低于 40 拍时，单拍间隔拉长，注意力更容易中断。本月完成率最低的条目是 40 拍的长时挑战，而不是 90 拍的变速段。</div>
+          </details>
+          <details>
+            <summary>停顿后接不上拍子，应该怎么练？</summary>
+            <div class="ans">先做<b>分段呼吸复位练习</b>，用 4-4-6 的呼吸结构把停顿后的回正固定成流程。如果复位耗时仍超过半拍，说明停顿期间呼吸节奏乱了，应缩短停顿时长，回到三成占比的条目巩固。</div>
+          </details>
+          <details>
+            <summary>分段复盘记录表要记哪些内容？</summary>
+            <div class="ans">六栏表记录轮次、目标拍位、实际落点、偏差拍数、抢拍或拖拍、复位耗时。连续记录三天后，偏差通常会集中在一到两个拍位，这两个位置就是加练重点，不必每轮都反复纠。</div>
+          </details>
+          <details>
+            <summary>盲拍练习有必要吗？</summary>
+            <div class="ans">有必要，但建议放在单轮和循环都稳定之后。盲拍检验的是内心拍感是否脱离外部节拍器独立成立。常见问题是第二拍偏差偏大，说明起拍用力过猛，后续拍被带偏。盲拍结果可用来校准起拍力度。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="section" id="comments">
+        <div class="sec-head">
+          <h2>练习者评论</h2>
+          <span class="sec-sub">来自不同阶段的练习反馈</span>
+        </div>
+        <div class="comments">
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#f0b429">林</span><b>林间慢拍</b><time>11-08 10:12</time></div><p>六十拍单轮练了四天，终于能在第三拍稳稳停住。之前总<em>抢拍</em>，把节拍器音量调低之后就准了。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#4fd1c5">周</span><b>周末复盘表</b><time>11-08 09:36</time></div><p>四拍循环的第八轮我必崩，看完记录表发现是第七轮复位拖了半拍，连带影响下一轮。现在第七轮结束后会多停两拍。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#e2718f">陈</span><b>陈边练边记</b><time>11-07 22:48</time></div><p>金字塔阶梯第三轮确实最难，停顿最长反而容易走神。我的办法是提前在心里数拍，不靠听。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#8a7ff0">小</span><b>小满的节拍</b><time>11-07 20:05</time></div><p>呼吸复位那个 4-4-6 我用着有点晕，屏息四拍对我偏长，改成 4-3-6 才顺。条目本身写得挺清楚。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#5bbf8a">夜</span><b>夜班听拍</b><time>11-07 01:22</time></div><p>长时低拍是真的难，第 12 分钟那次提示音救了我。40 拍太慢，注意力老是飘。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#f0b429">苏</span><b>苏打水不加冰</b><time>11-06 19:40</time></div><p>变速段从 60 提到 75 那一下，我前三次全踩空。后来发现是提速前那一拍要稍微提前发力，不是提速后才调整。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#4fd1c5">阿</span><b>阿岚练盲拍</b><time>11-06 16:11</time></div><p>盲拍第二拍偏差大，我还以为是自己听不准，看完复盘才明白是起拍太用力。这反馈挺有用的。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#e2718f">木</span><b>木子拍点</b><time>11-05 21:07</time></div><p>整体条目偏入门向，L4 以上的选择不算多。希望金字塔阶梯能再出个七轮版本。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#8a7ff0">段</span><b>段落式呼吸</b><time>11-05 14:30</time></div><p>把呼吸复位和单轮交替练了三天，复位耗时从接近一拍压到半拍以内，效果比单练明显。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#5bbf8a">大</span><b>大提琴低音</b><time>11-04 23:55</time></div><p>四拍循环第三拍停顿的设计很讲究，弱拍停顿确实比强拍难。建议新手先在强拍版本过渡。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#f0b429">禾</span><b>禾苗听节拍</b><time>11-04 18:20</time></div><p>分段复盘表六栏有点多，我实际只用了四栏，偏差和复位耗时两列最有用。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#4fd1c5">青</span><b>青石台阶</b><time>11-03 20:44</time></div><p>金字塔阶梯改了轮间休息规则后顺多了。之前自由休息容易打乱节奏，固定停四拍反而好接。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#e2718f">九</span><b>九拍半</b><time>11-03 12:18</time></div><p>盲拍结果对照回放，偏差集中在第二拍和第五拍，中间反而稳。看来起拍和复位后第一拍是通病。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#8a7ff0">慢</span><b>慢速播放器</b><time>11-02 22:03</time></div><p>长时低拍练到一半就想停，后来把二十分钟拆成两个十分钟，中间休息一分钟，完成率上来了。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#5bbf8a">短</span><b>短拍爱好者</b><time>11-02 10:35</time></div><p>觉得四拍循环节奏太密，个人更偏八拍。不过条目标注难度挺准确，L3 就是 L3，不会忽高忽低。</p></div>
+          <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#f0b429">一</span><b>一只节拍器</b><time>11-01 19:26</time></div><p>建议新手不要一上来就练变速，我第一周直接上变速，结果拍感全乱，退回去练单轮才理顺。</p></div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="section" id="news">
+        <div class="sec-head">
+          <h2>相关资讯</h2>
+          <span class="sec-sub">条目上线与规则调整记录</span>
+        </div>
+        <div class="news">
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/cunzhi-news01/600/400" width="600" height="400" loading="lazy" alt="四拍循环耐力挑战新增变体公告配图">
+            <div class="news-body">
+              <h3>四拍循环耐力挑战新增反向停顿变体</h3>
+              <p>第九轮把停顿从第三拍移到第二拍，弱拍停顿改为次强拍停顿，用于检验拍位记忆是否牢固。</p>
+              <div class="news-meta"><span>2026-11-08</span>更新公告</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/cunzhi-news02/600/400" width="600" height="400" loading="lazy" alt="呼吸复位节拍音频上线配图">
+            <div class="news-body">
+              <h3>4-4-6 呼吸节拍音频上线，复位练习可跟练</h3>
+              <p>音频按吸气四拍、屏息四拍、呼气六拍循环，可与单轮挑战交替使用，降低复位耗时。</p>
+              <div class="news-meta"><span>2026-11-08</span>功能上线</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/cunzhi-news03/600/400" width="600" height="400" loading="lazy" alt="金字塔耐力阶梯轮间休息调整配图">
+            <div class="news-body">
+              <h3>金字塔耐力阶梯轮间休息改为固定停四拍</h3>
+              <p>第三轮后不再自由休息，改用固定四拍间隔，减少节奏断裂，也让轮次之间的比较更公平。</p>
+              <div class="news-meta"><span>2026-11-07</span>规则调整</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/cunzhi-news04/600/400" width="600" height="400" loading="lazy" alt="分段复盘记录表新增复位耗时列配图">
+            <div class="news-body">
+              <h3>分段复盘记录表新增复位耗时列</h3>
+              <p>六栏表扩为七栏，复位耗时单独统计，便于比较不同拍速下停顿后的回正效率。</p>
+              <div class="news-meta"><span>2026-11-03</span>工具更新</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/cunzhi-news05/600/400" width="600" height="400" loading="lazy" alt="变速寸止挑战三段式拍速调整配图">
+            <div class="news-body">
+              <h3>变速寸止挑战改为三段式，60→75→90 梯度更平缓</h3>
+              <p>原两段式在提速瞬间偏差集中，增加 75 拍中间段后，切换点的落点准确率明显上升。</p>
+              <div class="news-meta"><span>2026-11-05</span>条目调整</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img src="https://picsum.photos/seed/cunzhi-news06/600/400" width="600" height="400" loading="lazy" alt="难度榜单本月更新配图">
+            <div class="news-body">
+              <h3>难度榜单本月更新：长时低拍蝉联首位</h3>
+              <p>长时低拍耐力挑战以 23% 完成率继续居首，金字塔耐力阶梯升至第二，变速寸止挑战位列第三。</p>
+              <div class="news-meta"><span>2026-10-24</span>榜单更新</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="section" id="reco">
+        <div class="sec-head">
+          <h2>延伸方向</h2>
+          <span class="sec-sub">从当前条目往外扩展的练习方向</span>
+        </div>
+        <div class="reco-tags">
+          <a href="/#featured">弱拍停顿专项 <small>拍位记忆</small></a>
+          <a href="/#featured">呼吸与停顿同步 <small>复位</small></a>
+          <a href="/#guide">起拍力度校准 <small>盲拍</small></a>
+          <a href="/#deep">轮间休息设计 <small>结构</small></a>
+          <a href="/#category">八拍循环过渡 <small>周期</small></a>
+          <a href="/#rank">慢拍注意力训练 <small>长时</small></a>
+          <a href="/#latest">节拍器三档预设 <small>工具</small></a>
+          <a href="/#faq">复位耗时统计法 <small>复盘</small></a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：热门榜单 -->
+      <section class="section" id="rank">
+        <div class="sec-head">
+          <h2>本月难度榜单</h2>
+          <span class="sec-sub">按完成率由低到高排序 · 截至 11 月 8 日</span>
+        </div>
+        <ul class="rank">
+          <li class="rank-item"><span class="rank-no">1</span><div><div class="r-name">长时低拍耐力挑战</div><div class="r-sub">40 BPM · 20 分钟 · L5</div></div><div class="rank-bar"><i style="--w:88%"></i><em>23%</em></div></li>
+          <li class="rank-item"><span class="rank-no">2</span><div><div class="r-name">金字塔耐力阶梯</div><div class="r-sub">1-2-3-2-1 拍 · 五轮 · L4</div></div><div class="rank-bar"><i style="--w:70%"></i><em>41%</em></div></li>
+          <li class="rank-item"><span class="rank-no">3</span><div><div class="r-name">变速寸止挑战</div><div class="r-sub">60→90 BPM · 三段落 · L3</div></div><div class="rank-bar"><i style="--w:62%"></i><em>52%</em></div></li>
+          <li class="rank-item"><span class="rank-no">4</span><div><div class="r-name">四拍循环耐力挑战</div><div class="r-sub">4/4 拍 · 八轮 · L3</div></div><div class="rank-bar"><i style="--w:56%"></i><em>58%</em></div></li>
+          <li class="rank-item"><span class="rank-no">5</span><div><div class="r-name">盲拍寸止练习</div><div class="r-sub">无节拍器 · 四拍停顿 · L2</div></div><div class="rank-bar"><i style="--w:48%"></i><em>67%</em></div></li>
+          <li class="rank-item"><span class="rank-no">6</span><div><div class="r-name">六十拍单轮寸止挑战</div><div class="r-sub">60 BPM · 单轮 · L1</div></div><div class="rank-bar"><i style="--w:34%"></i><em>86%</em></div></li>
+        </ul>
+      </section>
+
+      <div class="no-hit" id="noHit">当前筛选下没有匹配的条目，换个拍速或类型词再试，例如“循环”“变速”“复位”。</div>
+
+    </div>
+
+    <!-- 右辅助栏 -->
+    <aside class="side-col" aria-label="辅助信息">
+
+      <div class="side-box">
+        <h3>拍速速查</h3>
+        <div class="side-note">
+          <b>40 BPM</b> 慢拍维持，注意力优先<br>
+          <b>60 BPM</b> 入门舒适区，拍感建立<br>
+          <b>75 BPM</b> 常规练习，循环与阶梯常用<br>
+          <b>90 BPM</b> 提速反应，停顿窗口收窄
+        </div>
+      </div>
+
+      <div class="side-box side-rank">
+        <h3>本周完成率</h3>
+        <ul class="rank">
+          <li class="rank-item"><span class="rank-no">1</span><div class="r-name">六十拍单轮</div><div class="rank-bar"><i style="--w:86%"></i><em>86%</em></div></li>
+          <li class="rank-item"><span class="rank-no">2</span><div class="r-name">呼吸复位练习</div><div class="rank-bar"><i style="--w:79%"></i><em>79%</em></div></li>
+          <li class="rank-item"><span class="rank-no">3</span><div class="r-name">盲拍寸止</div><div class="rank-bar"><i style="--w:67%"></i><em>67%</em></div></li>
+          <li class="rank-item"><span class="rank-no">4</span><div class="r-name">四拍循环</div><div class="rank-bar"><i style="--w:58%"></i><em>58%</em></div></li>
+          <li class="rank-item"><span class="rank-no">5</span><div class="r-name">变速挑战</div><div class="rank-bar"><i style="--w:52%"></i><em>52%</em></div></li>
+        </ul>
+      </div>
+
+      <div class="side-box">
+        <h3>近期时间线</h3>
+        <div class="side-timeline">
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-body"><b>四拍循环新增反向停顿</b><span>11 月 8 日</span></div></div>
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-body"><b>4-4-6 呼吸音频上线</b><span>11 月 8 日</span></div></div>
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-body"><b>阶梯轮间休息改固定四拍</b><span>11 月 7 日</span></div></div>
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-body"><b>复盘表扩为七栏</b><span>11 月 3 日</span></div></div>
+          <div class="tl-item"><span class="tl-dot"></span><div class="tl-body"><b>变速挑战三段式调整</b><span>11 月 5 日</span></div></div>
+        </div>
+      </div>
+
+      <div class="side-box">
+        <h3>复位三要点</h3>
+        <div class="side-note">
+          吸气四拍：稳定情绪，不抢拍<br>
+          屏息四拍：维持节拍记忆<br>
+          呼气六拍：把身体拉回节拍<br><br>
+          复位耗时超过半拍，先缩短停顿时长。
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+</main>
+
+<!-- 页尾 -->
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1b1e2e"/>
+          <circle cx="32" cy="32" r="19" fill="none" stroke="#f0b429" stroke-width="3.5"/>
+          <path d="M32 13v19l13 9" fill="none" stroke="#f0b429" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="3" fill="#4fd1c5"/>
+        </svg>
+        <span class="brand-name">寸止调教</span>
+      </div>
+      <p>围绕节拍、停顿与复位建立的节奏控制玩法合集，收录单轮挑战、四拍循环、耐力阶梯、呼吸复位与分段复盘等条目，按拍速与结构分层整理。</p>
+    </div>
+    <div class="foot-col">
+      <h4>挑战条目</h4>
+      <a href="/#featured">六十拍单轮寸止挑战</a>
+      <a href="/#featured">四拍循环耐力挑战</a>
+      <a href="/#featured">金字塔耐力阶梯</a>
+      <a href="/#featured">变速寸止挑战</a>
+    </div>
+    <div class="foot-col">
+      <h4>练习方向</h4>
+      <a href="/#category">呼吸复位</a>
+      <a href="/#category">盲拍练习</a>
+      <a href="/#category">长时低拍</a>
+      <a href="/#category">分段复盘</a>
+    </div>
+    <div class="foot-col">
+      <h4>查阅入口</h4>
+      <a href="/#overview">领域概览</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#rank">难度榜单</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>寸止调教 · 节奏控制玩法合集</span>
+    <span class="disc">部分内容为示例数据，仅用于展示页面结构</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端导航展开 */
+  var toggle = document.getElementById("navToggle");
+  var nav = document.getElementById("headNav");
+  if(toggle && nav){
+    toggle.addEventListener("click", function(){
+      var open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.addEventListener("click", function(e){
+      if(e.target.tagName === "A"){
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded","false");
+      }
+    });
+  }
+
+  /* 本地内容筛选 */
+  var input = document.getElementById("siteSearch");
+  var btn = document.getElementById("searchBtn");
+  var feedback = document.getElementById("searchFeedback");
+  var feedbackText = document.getElementById("searchText");
+  var clearBtn = document.getElementById("clearSearch");
+  var noHit = document.getElementById("noHit");
+  var cards = Array.prototype.slice.call(document.querySelectorAll("#featuredGrid .card"));
+  var catBtns = Array.prototype.slice.call(document.querySelectorAll(".cat-item"));
+  var sections = Array.prototype.slice.call(document.querySelectorAll(".section"));
+
+  function clearMarks(){
+    document.querySelectorAll("mark.hit").forEach(function(m){
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+  }
+
+  function markText(el, q){
+    if(!q) return;
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node){
+      var text = node.nodeValue;
+      var idx = text.toLowerCase().indexOf(q.toLowerCase());
+      if(idx === -1) return;
+      var range = document.createRange();
+      range.setStart(node, idx);
+      range.setEnd(node, idx + q.length);
+      var mark = document.createElement("mark");
+      mark.className = "hit";
+      mark.appendChild(range.extractContents());
+      range.insertNode(mark);
+    });
+  }
+
+  function resetFilter(){
+    clearMarks();
+    cards.forEach(function(c){ c.style.display = ""; });
+    noHit.classList.remove("show");
+    feedback.classList.remove("show");
+    if(input) input.value = "";
+  }
+
+  function applyFilter(q){
+    q = (q || "").trim();
+    clearMarks();
+    if(!q){
+      resetFilter();
+      return;
+    }
+    var hitCount = 0;
+    var lower = q.toLowerCase();
+    cards.forEach(function(card){
+      var hay = (card.getAttribute("data-search") || "") + " " + card.textContent;
+      var match = hay.toLowerCase().indexOf(lower) !== -1;
+      card.style.display = match ? "" : "none";
+      if(match){
+        hitCount++;
+        markText(card, q);
+      }
+    });
+    feedbackText.textContent = "正在查看「" + q + "」相关条目，共匹配 " + hitCount + " 条精选内容。";
+    feedback.classList.add("show");
+    noHit.classList.toggle("show", hitCount === 0);
+  }
+
+  if(btn && input){
+    btn.addEventListener("click", function(){ applyFilter(input.value); });
+    input.addEventListener("keydown", function(e){
+      if(e.key === "Enter"){ e.preventDefault(); applyFilter(input.value); }
+    });
+    input.addEventListener("input", function(){
+      if(input.value.trim() === "") resetFilter();
+    });
+  }
+  if(clearBtn) clearBtn.addEventListener("click", resetFilter);
+
+  /* 分类按钮筛选 */
+  catBtns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var f = b.getAttribute("data-filter") || "";
+      if(input) input.value = f;
+      applyFilter(f);
+      var featured = document.getElementById("featured");
+      if(featured){
+        featured.scrollIntoView({behavior:"smooth", block:"start"});
+      }
+    });
+  });
+
+  /* 锚点平滑滚动（考虑吸顶偏移） */
+  document.addEventListener("click", function(e){
+    var a = e.target.closest('a[href^="/#"]');
+    if(!a) return;
+    var id = a.getAttribute("href").slice(2);
+    var target = document.getElementById(id);
+    if(!target) return;
+    e.preventDefault();
+    target.scrollIntoView({behavior:"smooth", block:"start"});
+    history.replaceState(null, "", "/#" + id);
+  });
+})();
+</script>
+</body>
+            </html>
